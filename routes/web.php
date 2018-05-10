@@ -18,6 +18,12 @@ Route::resource('panel/descripcion', 'DescController');
 
 //vista de habilidades
 Route::resource('panel/habilidades', 'HabilidadesController');
+
+//vista de Experiencias
+Route::resource('panel/experiencias', 'ExperienciasController');
+
+
+
 //ruta que consume vue
 Route::get('/abilities', 'FrontController@habilidadesVue');
 //ruta del front-end
