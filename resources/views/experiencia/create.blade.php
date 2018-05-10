@@ -5,7 +5,8 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
   <h1 class="h2">Nueva Experiencia</h1>
 </div>
-<form class="form-horizontal">
+<form class="form-horizontal" method="post" action="{{route('experiencias.store')}}">
+  {!!csrf_field()!!}
 <fieldset>
 
 <!-- Form Name -->
@@ -24,7 +25,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Descripción</label>
   <div class="col-md-12">
-  <input id="textinput" name="textinput" placeholder="breve descripción" class="form-control input-md" required="" type="text">
+  <input name="descripcion" placeholder="breve descripción" class="form-control input-md" required="" type="text">
 
   </div>
 </div>
@@ -33,7 +34,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Fecha de inicio</label>
   <div class="col-md-2">
-  <input placeholder="fecha en la que inicio a laborar" class="form-control input-md" type="date">
+  <input name="fecha_inicio" class="form-control input-md" type="date">
 
   </div>
 </div>
@@ -42,7 +43,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Fecha de Retiro</label>
   <div class="col-md-2">
-  <input placeholder="fecha en la que culminó labores" class="form-control input-md" required="" type="date">
+  <input name="fecha_final" class="form-control input-md" required="" type="date">
 
   </div>
 </div>
@@ -51,7 +52,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for=""></label>
   <div class="col-md-4">
-    <button id="" name="" class="btn btn-primary">Guardar</button>
+    <button type="submit" class="btn btn-primary">Guardar</button>
   </div>
 </div>
 

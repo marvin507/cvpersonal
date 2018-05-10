@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Experience;
 class ExperienciasController extends Controller
 {
 
@@ -18,8 +18,8 @@ class ExperienciasController extends Controller
      */
     public function index()
     {
-        //
-        return view('experiencia.index');
+        $experiencias = Experience::all();
+        return view('experiencia.index', compact('experiencias'));
     }
 
     /**
@@ -41,7 +41,8 @@ class ExperienciasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Experience::create($request->all());
+        return redirect()->route('experiencias.index')->with('save', 'Guardado con exito');
     }
 
     /**
