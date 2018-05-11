@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Description;
 use App\Ability;
+use App\Experience;
 class FrontController extends Controller
 {
 
@@ -18,6 +19,13 @@ class FrontController extends Controller
       $habilidades = Ability::all();
 
       return $habilidades;
+    }
+
+    public function experienciasVue(){
+
+      $experiencias = Experience::all();
+
+      return $experiencias;
     }
 
 }

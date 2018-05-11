@@ -24,7 +24,8 @@ Route::resource('panel/experiencias', 'ExperienciasController');
 
 
 
-//ruta que consume vue
+//rutas que consume vue
 Route::get('/abilities', 'FrontController@habilidadesVue');
+Route::get('/experiences', 'FrontController@experienciasVue');
 //ruta del front-end
 Route::get('/', 'FrontController@index');

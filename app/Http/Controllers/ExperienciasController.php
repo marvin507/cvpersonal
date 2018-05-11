@@ -64,7 +64,8 @@ class ExperienciasController extends Controller
      */
     public function edit($id)
     {
-        //
+        $exp = Experience::findOrFail($id);
+        return view('experiencia.edit', compact('exp'));
     }
 
     /**
@@ -76,7 +77,8 @@ class ExperienciasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Experience::findOrFail($id)->update($request->all());
+        return back()->with('update', 'Datos Actualizados Exitosamente');
     }
 
     /**
@@ -87,6 +89,7 @@ class ExperienciasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Experience::findOrFail($id)->delete();
+        return back()->with('delete', 'Datos eliminados');
     }
 }

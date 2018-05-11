@@ -24,4 +24,12 @@ $('a.experiencia').click(function(e){
 }, 1000);
 });
 
+$('a.educacion').click(function(e){
+      e.preventDefault();
+      var enlace = $(this).attr('href');
+      $('html, body').animate({
+        scrollTop: $(enlace).offset().top
+}, 1000);
+});
+
 });

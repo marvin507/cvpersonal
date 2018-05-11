@@ -25,10 +25,10 @@
                   <a class="nav-link habilidad" href="#habilidad">Habilidades</a>
                </li>
                <li class="nav-item active">
-                  <a class="nav-link experiencia" href="#experiencia">Experiencia</a>
+                  <a class="nav-link experiencia" href="#experiencia">Experiencias</a>
                </li>
                <li class="nav-item active">
-                  <a class="nav-link" href="#">Educación</a>
+                  <a class="nav-link educacion" href="#educacion">Educación</a>
                </li>
                <li class="nav-item active">
                   <a class="nav-link" href="#">Proyectos</a>
@@ -41,62 +41,88 @@
       </nav>
       <!-- navegacion -->
       <br><br>
-      <section id="inicio">
-         <!-- presentacion -->
-         <div class="jumbotron">
-            <div class="container">
-               <img src="https://s3mn.mnimgs.com/img/shared/userimages/userimage_10951263.jpg" class="rounded mx-auto d-block img-profile rounded-circle" alt="">
-               @if(!$dsc)
-               @else
-               <center>
-                  <h1><strong>{{$dsc->name}}</strong></h1>
-               </center>
-               <center>
-                  <h4>{{$dsc->address}}</h4>
-               </center>
-               <center>
-                  <h4>{{$dsc->email}}</h4>
-               </center>
-               <center>
-                  <p>{{$dsc->descripcion}}</p>
-               </center>
-               @endif
-            </div>
-         </div>
-      </section>
-      <section id="habilidad">
-         <center>
-            <strong>
-               <h1><u>Habilidades</u></h1>
-            </strong>
-         </center>
-         <div style="font-size:3em; color:black">
-            <center><i class="fas fa-code"></i></center>
-         </div>
-         <br>
-         <div class="row" v-for="item in habilidades">
-            <div class="col-sm-3">
-               <p class="text-right">@{{item.habilidad}}</p>
-            </div>
-            <div class="col-sm-6">
-               <div class="progress">
-                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" v-bind:style="'width: ' + item.porcentaje + ' !important'">@{{item.porcentaje}}</div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <section id="experiencia">
-         <div class="jumbotron">
-            <div class="heading">
-               <h1 class="text-center">Work Experience</h1>
-            </div>
-            <div style="font-size:3em; color:black">
-               <center><i class="far fa-id-badge"></i></center>
-            </div>
-            <br>
-            
-         </div>
-      </section>
+      <div class="container-fluid" id="main">
+        <section id="inicio">
+           <!-- presentacion -->
+           <div class="jumbotron">
+              <div class="container">
+                 <img src="" class="rounded mx-auto d-block img-profile rounded-circle" alt="">
+                 @if(!$dsc)
+                 @else
+                 <center>
+                    <h1><strong>{{$dsc->name}}</strong></h1>
+                 </center>
+                 <center>
+                    <h4>{{$dsc->address}}</h4>
+                 </center>
+                 <center>
+                    <h4>{{$dsc->email}}</h4>
+                 </center>
+                 <center>
+                    <p>{{$dsc->descripcion}}</p>
+                 </center>
+                 @endif
+              </div>
+           </div>
+        </section>
+        <section id="habilidad">
+           <center>
+              <strong>
+                 <h1><u>Habilidades</u></h1>
+              </strong>
+           </center>
+           <div style="font-size:3em; color:black">
+              <center><i class="fas fa-code"></i></center>
+           </div>
+           <br>
+           <div class="row" v-for="item in habilidades">
+              <div class="col-sm-3">
+                 <p class="text-right">@{{item.habilidad}}</p>
+              </div>
+              <div class="col-sm-6">
+                 <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" v-bind:style="'width: ' + item.porcentaje + ' !important'">@{{item.porcentaje}}</div>
+                 </div>
+              </div>
+           </div>
+        </section>
+        <section id="experiencia">
+           <div class="jumbotron">
+              <div class="heading">
+                 <h1 class="text-center">Experiencias</h1>
+              </div>
+              <div style="font-size:3em; color:black">
+                 <center><i class="far fa-id-badge"></i></center>
+              </div>
+              <br>
+              <div class="row" v-for="item in experiencias">
+        <div class="col-sm-12">
+        <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">@{{item.empresa}}</h5>
+          <p class="card-text">@{{item.descripcion}}.</p>
+          <a href="" class="btn btn-success btn-sm">Inicio @{{item.fecha_inicio}}</a>
+          <a href="" class="btn btn-danger btn-sm">Final @{{item.fecha_final}}</a>
+        </div>
+        </div><br>
+        </div>
+
+      </div>
+           </div>
+        </section>
+    <section id="educacion">
+      <center>
+         <strong>
+            <h1><u>Educación</u></h1>
+         </strong>
+      </center>
+      <div style="font-size:3em; color:black">
+         <center><i class="fas fa-graduation-cap"></i></center>
+      </div>
+    </section>
+      </div>
+
+
       <script src="/js/jquery.js"></script>
       <script src="/js/app.js"></script>
       <script src="/js/landingPages.js"></script>

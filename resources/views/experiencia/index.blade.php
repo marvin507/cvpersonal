@@ -32,7 +32,14 @@
           <td>
               <p>del {{$experiencia->fecha_inicio}} al {{$experiencia->fecha_final}}</p>
           </td>
-          <td>editar</td>
+          <td width="190px">
+              <a href="{{route('experiencias.edit', $experiencia->id)}}" class="btn btn-warning">Editar</a>
+              <form style="Display: inline;" action="{{route('experiencias.destroy', $experiencia->id)}}" method="post">
+                {!!csrf_field()!!}
+                {!!method_field('DELETE')!!}
+                <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estas seguro de eliminar esta experiencia?')">Eliminar</button>
+              </form>
+          </td>
         </tr>
     @endforeach
   </tbody>
