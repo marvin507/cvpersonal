@@ -61,7 +61,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{route('educacion.index')}}">
                   <span data-feather="bar-chart-2"></span>
                   Educación
                 </a>

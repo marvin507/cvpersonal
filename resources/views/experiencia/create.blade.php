@@ -14,6 +14,14 @@
 
 <!-- Text input-->
 <div class="form-group">
+  <label class="col-md-4 control-label" for="cargo">Empreza</label>
+  <div class="col-md-12">
+  <input id="cargo" name="cargo" placeholder="cargo que desempeñó" class="form-control input-md" required="" type="text" autofocus>
+
+  </div>
+</div>
+<!-- Text input-->
+<div class="form-group">
   <label class="col-md-4 control-label" for="empresa">Empreza</label>
   <div class="col-md-12">
   <input id="empresa" name="empresa" placeholder="nombre de la empresa" class="form-control input-md" required="" type="text">

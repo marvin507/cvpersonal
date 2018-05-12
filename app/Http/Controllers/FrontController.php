@@ -6,13 +6,17 @@ use Illuminate\Http\Request;
 use App\Description;
 use App\Ability;
 use App\Experience;
+use App\Education;
 class FrontController extends Controller
 {
 
     public function index(){
       $dsc = Description::first();
-      $habilidades = Ability::all();
-      return view('front', compact('dsc', 'habilidades'));
+      return view('front', compact('dsc'));
+    }
+    public function descripcionVue(){
+      $dscp = Description::first();
+      return $dscp;
     }
     public function habilidadesVue(){
 
@@ -26,6 +30,13 @@ class FrontController extends Controller
       $experiencias = Experience::all();
 
       return $experiencias;
+    }
+
+    public function educacionVue(){
+
+      $educacion = Education::all();
+
+      return $educacion;
     }
 
 }

@@ -22,10 +22,15 @@ Route::resource('panel/habilidades', 'HabilidadesController');
 //vista de Experiencias
 Route::resource('panel/experiencias', 'ExperienciasController');
 
+//vista de educacion
+Route::resource('panel/educacion', 'EducacionController');
+
 
 
 //rutas que consume vue
+Route::get('/acercade', 'FrontController@descripcionVue');
 Route::get('/abilities', 'FrontController@habilidadesVue');
 Route::get('/experiences', 'FrontController@experienciasVue');
+Route::get('/educacion', 'FrontController@educacionVue');
 //ruta del front-end
 Route::get('/', 'FrontController@index');
