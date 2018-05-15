@@ -49,12 +49,6 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{route('habilidades.index')}}">
-                  <span data-feather="shopping-cart"></span>
-                  Habilidades
-                </a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="{{route('experiencias.index')}}">
                   <span data-feather="users"></span>
                   Experiencias
@@ -67,15 +61,29 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{route('habilidades.index')}}">
+                  <span data-feather="shopping-cart"></span>
+                  Habilidades
+                </a>
+              </li>
+
+
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('proyectos.index')}}">
                   <span data-feather="layers"></span>
                   Proyectos
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{route('cv.index')}}">
                   <span data-feather="layers"></span>
                   CV
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('footer.index')}}">
+                  <span data-feather="layers"></span>
+                  Footer
                 </a>
               </li>
             </ul>
@@ -90,27 +98,16 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">
                   <span data-feather="file-text"></span>
-                  Current month
+                  Tema
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">
                   <span data-feather="file-text"></span>
-                  Last quarter
+                  Perfil
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Social engagement
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Year-end sale
-                </a>
-              </li>
+
             </ul>
           </div>
         </nav>

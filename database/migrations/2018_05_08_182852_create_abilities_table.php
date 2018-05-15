@@ -15,8 +15,8 @@ class CreateAbilitiesTable extends Migration
     {
         Schema::create('abilities', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('habilidad')->unique();
-            $table->string('porcentaje');
+            $table->string('habilidad', 20)->unique();
+            $table->string('porcentaje', 4);
             $table->timestamps();
         });
     }

@@ -7,12 +7,18 @@ use App\Description;
 use App\Ability;
 use App\Experience;
 use App\Education;
+use App\Project;
+use App\Cv;
+use App\Footer;
 class FrontController extends Controller
 {
 
     public function index(){
       $dsc = Description::first();
-      return view('front', compact('dsc'));
+      $cv = Cv::first();
+      $redes = Footer::all();
+      $proyectos = Project::all();
+      return view('front', compact('dsc', 'cv', 'redes', 'proyectos'));
     }
     public function descripcionVue(){
       $dscp = Description::first();
@@ -37,6 +43,13 @@ class FrontController extends Controller
       $educacion = Education::all();
 
       return $educacion;
+    }
+
+    public function proyectosVue(){
+
+      $proyectos = Project::all();
+
+      return $proyectos;
     }
 
 }

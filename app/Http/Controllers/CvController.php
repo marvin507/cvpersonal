@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Description;
-class DescController extends Controller
+use App\Cv;
+class CvController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,9 +13,9 @@ class DescController extends Controller
      */
     public function index()
     {
-      $descripciones = Description::all();
-        //retornamos al vista
-        return view('descripcion.index', compact('descripciones'));
+        $cv = Cv::first();
+
+        return view('cv.index', compact('cv'));
     }
 
     /**
@@ -25,8 +25,7 @@ class DescController extends Controller
      */
     public function create()
     {
-        //vista del formulario
-        return view('descripcion.create');
+        return view('cv.create');
     }
 
     /**
@@ -37,19 +36,16 @@ class DescController extends Controller
      */
     public function store(Request $request)
     {
+
       //se obtiene el nombre original del archivo
       $nombre = $request->file('archivo')->getClientOriginalName();
       //se guarda en el directorio publico
       $path = $request->file('archivo')->storeAs('public', $nombre);
-      //guardamos
-      $des = new Description;
-      $des->archivo = $path;
-      $des->name = $request->name;
-      $des->address = $request->address;
-      $des->email = $request->email;
-      $des->descripcion = $request->descripcion;
-      $des->save();
-        return back()->with('save', 'Guardado exitoso');
+
+      $imagen = new Cv;
+      $imagen->archivo = $path;
+      $imagen->save();
+      return redirect()->route('cv.index');
     }
 
     /**
@@ -71,8 +67,7 @@ class DescController extends Controller
      */
     public function edit($id)
     {
-        $desc=Description::findOrFail($id);
-        return view('descripcion.edit', compact('desc'));
+        //
     }
 
     /**
@@ -84,8 +79,7 @@ class DescController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Description::findOrFail($id)->update($request->all());
-        return back()->with('save', 'Datos actualizados correctamente');
+        //
     }
 
     /**
@@ -96,6 +90,7 @@ class DescController extends Controller
      */
     public function destroy($id)
     {
-        Description::findOrFail($id)->delete();
-        return back()->with('delete', 'Datos eliminados');    }
+        Cv::findOrFail($id)->delete();
+        return back();
+    }
 }

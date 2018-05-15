@@ -15,9 +15,9 @@ class CreateExperiencesTable extends Migration
     {
         Schema::create('experiences', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('cargo');
-            $table->string('empresa')->unique();
-            $table->string('descripcion');
+            $table->string('cargo', 20);
+            $table->string('empresa', 20)->unique();
+            $table->text('descripcion', 50);
             $table->date('fecha_inicio');
             $table->date('fecha_final');
             $table->timestamps();

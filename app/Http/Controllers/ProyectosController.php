@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Description;
-class DescController extends Controller
+use App\Project;
+class ProyectosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,9 +13,8 @@ class DescController extends Controller
      */
     public function index()
     {
-      $descripciones = Description::all();
-        //retornamos al vista
-        return view('descripcion.index', compact('descripciones'));
+        $proyectos = Project::all();
+        return view('proyecto.index', compact('proyectos'));
     }
 
     /**
@@ -25,8 +24,7 @@ class DescController extends Controller
      */
     public function create()
     {
-        //vista del formulario
-        return view('descripcion.create');
+        return view('proyecto.create');
     }
 
     /**
@@ -37,19 +35,16 @@ class DescController extends Controller
      */
     public function store(Request $request)
     {
-      //se obtiene el nombre original del archivo
-      $nombre = $request->file('archivo')->getClientOriginalName();
-      //se guarda en el directorio publico
-      $path = $request->file('archivo')->storeAs('public', $nombre);
-      //guardamos
-      $des = new Description;
-      $des->archivo = $path;
-      $des->name = $request->name;
-      $des->address = $request->address;
-      $des->email = $request->email;
-      $des->descripcion = $request->descripcion;
-      $des->save();
-        return back()->with('save', 'Guardado exitoso');
+        $nombre = $request->file('archivo')->getClientOriginalName();
+        $path = $request->file('archivo')->storeAs('public', $nombre);
+        $proyecto = new Project;
+        $proyecto->archivo = $path;
+        $proyecto->proyecto = $request->proyecto;
+        $proyecto->descripcion = $request->descripcion;
+        $proyecto->titulo_enlace = $request->titulo_enlace;
+        $proyecto->enlace = $request->enlace;
+        $proyecto->save();
+        return redirect()->route('proyectos.index')->with('save', 'Guardado satisfactoriamente');
     }
 
     /**
@@ -71,8 +66,8 @@ class DescController extends Controller
      */
     public function edit($id)
     {
-        $desc=Description::findOrFail($id);
-        return view('descripcion.edit', compact('desc'));
+        $proyecto = Project::findOrFail($id);
+        return view('proyecto.edit', compact('proyecto'));
     }
 
     /**
@@ -84,8 +79,8 @@ class DescController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Description::findOrFail($id)->update($request->all());
-        return back()->with('save', 'Datos actualizados correctamente');
+        Project::findOrFail($id)->update($request->all());
+        return redirect()->route('proyectos.index');
     }
 
     /**
@@ -96,6 +91,7 @@ class DescController extends Controller
      */
     public function destroy($id)
     {
-        Description::findOrFail($id)->delete();
-        return back()->with('delete', 'Datos eliminados');    }
+        Project::findOrFail($id)->delete();
+        return back();
+    }
 }

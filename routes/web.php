@@ -25,6 +25,15 @@ Route::resource('panel/experiencias', 'ExperienciasController');
 //vista de educacion
 Route::resource('panel/educacion', 'EducacionController');
 
+//vista de proyectos
+Route::resource('panel/proyectos', 'ProyectosController');
+
+//vista para subir hoja de vida
+Route::resource('panel/cv', 'CvController');
+
+//vista para configurar footer
+Route::resource('panel/footer', 'FooterController');
+
 
 
 //rutas que consume vue
@@ -32,5 +41,7 @@ Route::get('/acercade', 'FrontController@descripcionVue');
 Route::get('/abilities', 'FrontController@habilidadesVue');
 Route::get('/experiences', 'FrontController@experienciasVue');
 Route::get('/educacion', 'FrontController@educacionVue');
+Route::get('/proyectos', 'FrontController@proyectosVue');
+Route::get('/footer', 'FrontController@footerVue');
 //ruta del front-end
 Route::get('/', 'FrontController@index');

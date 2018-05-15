@@ -10,9 +10,16 @@
 {{session('save')}}
 </div>
 @endif
-<form class="form-horizontal" method="post" action="{{route('descripcion.store')}}">
+<form class="form-horizontal" method="post" action="{{route('descripcion.store')}}" enctype="multipart/form-data">
   {!!csrf_field()!!}
 <fieldset>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="archivo">Perfíl</label>
+    <div class="col-md-4">
+      <input id="archivo" name="archivo" class="input-file" type="file">
+    </div>
+  </div>
 <div class="form-group">
     <label class="col-md-12 control-label" for="">Nombre</label>
     <div class="col-md-12">

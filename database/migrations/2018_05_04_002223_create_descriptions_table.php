@@ -15,10 +15,11 @@ class CreateDescriptionsTable extends Migration
     {
         Schema::create('descriptions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->text('address');
-            $table->string('email');
-            $table->text('descripcion');
+            $table->string('archivo', 20);
+            $table->string('name', 50);
+            $table->text('address', 150);
+            $table->string('email', 50);
+            $table->text('descripcion', 150);
             $table->timestamps();
         });
     }

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Description;
-class DescController extends Controller
+use App\Footer;
+class FooterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,9 +13,8 @@ class DescController extends Controller
      */
     public function index()
     {
-      $descripciones = Description::all();
-        //retornamos al vista
-        return view('descripcion.index', compact('descripciones'));
+        $footers = Footer::all();
+        return view('footer.index', compact('footers'));
     }
 
     /**
@@ -25,8 +24,7 @@ class DescController extends Controller
      */
     public function create()
     {
-        //vista del formulario
-        return view('descripcion.create');
+        return view('footer.create');
     }
 
     /**
@@ -37,19 +35,8 @@ class DescController extends Controller
      */
     public function store(Request $request)
     {
-      //se obtiene el nombre original del archivo
-      $nombre = $request->file('archivo')->getClientOriginalName();
-      //se guarda en el directorio publico
-      $path = $request->file('archivo')->storeAs('public', $nombre);
-      //guardamos
-      $des = new Description;
-      $des->archivo = $path;
-      $des->name = $request->name;
-      $des->address = $request->address;
-      $des->email = $request->email;
-      $des->descripcion = $request->descripcion;
-      $des->save();
-        return back()->with('save', 'Guardado exitoso');
+        Footer::create($request->all());
+        return redirect()->route('footer.index');
     }
 
     /**
@@ -71,8 +58,8 @@ class DescController extends Controller
      */
     public function edit($id)
     {
-        $desc=Description::findOrFail($id);
-        return view('descripcion.edit', compact('desc'));
+      $footer = Footer::findOrFail($id);
+        return view('footer.edit', compact('footer'));
     }
 
     /**
@@ -84,8 +71,8 @@ class DescController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Description::findOrFail($id)->update($request->all());
-        return back()->with('save', 'Datos actualizados correctamente');
+        Footer::findOrFail($id)->update($request->all());
+        return redirect()->route('footer.index');
     }
 
     /**
@@ -96,6 +83,7 @@ class DescController extends Controller
      */
     public function destroy($id)
     {
-        Description::findOrFail($id)->delete();
-        return back()->with('delete', 'Datos eliminados');    }
+        Footer::findOrFail($id)->delete();
+        return back();
+    }
 }

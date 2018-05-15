@@ -1,20 +1,26 @@
 var urlDes = 'acercade';
 var urlAbilities = 'abilities';
 var urlExperiencias = 'experiences';
+var urlProyectos = 'proyectos';
 var urlEdu = 'educacion';
+var urlFooter = 'footer';
 var app = new Vue({
-  el: '#main', 
+  el: '#main',
   created:function(){
     this.showAcercade();
     this.showAbilities();
     this.showExperiencias();
     this.showEducacion();
+    this.showProjects();
+    this.showFooter();
   },
   data: {
     descripcion:[],
     habilidades: [],
     experiencias:[],
-    educacion:[]
+    educacion:[],
+    proyectos:[],
+    footer:[]
   },
   methods:{
     showAcercade:function(){
@@ -36,6 +42,18 @@ var app = new Vue({
     showEducacion:function(){
       axios.get(urlEdu).then(response=>{
           this.educacion = response.data
+      });
+    },
+
+    showProjects:function(){
+      axios.get(urlProyectos).then(response=>{
+        this.proyectos = response.data
+      });
+    },
+
+    showFooter:function(){
+      axios.get(urlFooter).then(response=>{
+          this.footer = response.data
       });
     }
   }

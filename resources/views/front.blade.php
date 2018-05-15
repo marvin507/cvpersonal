@@ -4,24 +4,42 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Brand</title>
+    <title>
+        @if(!$dsc) @else {{$dsc->name}} @endif
+    </title>
     <link rel="stylesheet" href="/css/app.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
-    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+
+    <style>
+        .derecha {
+            margin-right: 5px;
+        }
+
+        .col-center {
+            float: none;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 
 <body>
     <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
-        <div class="container"><a class="navbar-brand logo" href="#">{{$dsc->name}}</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse"
-                id="navbarNav">
+        <div class="container">
+            @if(!$dsc)
+            <a class="navbar-brand logo" href="#"></a>
+            @else
+            <a class="navbar-brand logo" href="#">{{$dsc->name}}</a> @endif
+
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" role="presentation"><a class="nav-link inicio" href="#inicio">Acerca de</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link experiencia" href="#experiencia">Experiencias</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active educacion" href="#educacion">Educación</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link habilidad" href="#habilidad">Habilidades</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="hire-me.html">Proyectos</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="hire-me.html">CV</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link proyecto" href="#proyecto">Proyectos</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{{Storage::url($cv->archivo)}}">Descargar CV</a></li>
                 </ul>
             </div>
         </div>
@@ -29,16 +47,18 @@
     <main class="page cv-page" id="main">
         <section class="portfolio-block block-intro border-bottom" id="inicio">
             <div class="container">
-                <div class="avatar" style="background-image:url(&quot;assets/img/avatars/avatar.jpg&quot;);"></div>
+            <div class="avatar" style="background-image: url({{ Storage::url($dsc->archivo) }})"></div>
+
+
                 <div class="about-me">
                     <p><strong>@{{descripcion.name}}</strong></p>
-                      <p>@{{descripcion.descripcion}}</p>
+                    <p>@{{descripcion.descripcion}}</p>
 
-                      <a class="btn btn-outline-primary" role="button" href="#">Hire me</a></div>
-            </div>
+                    <!-- <a class="btn btn-outline-primary" role="button" href="#">Hire me</a></div> -->
+                </div>
         </section>
         <div class="container-fluid">
-        <section class="portfolio-block border-bottom cv" id="experiencia">
+            <section class="portfolio-block border-bottom cv" id="experiencia">
 
                 <div class="work-experience group">
                     <div class="heading">
@@ -56,8 +76,8 @@
                     </div>
 
                 </div>
-              </section>
-                <section class="portfolio-block border-bottom cv" id="educacion">
+            </section>
+            <section class="portfolio-block border-bottom cv" id="educacion">
                 <div class="education group">
                     <div class="heading">
                         <h2 class="text-center">Educación</h2>
@@ -73,43 +93,74 @@
                         <p class="text-muted">@{{item.estado}}</p>
                     </div>
                 </div>
-              </section>
-              <section class="portfolio-block cv" id="habilidad">
+            </section>
+            <section class="portfolio-block border-bottom cv" id="habilidad">
                 <div class="education group">
                     <div class="heading">
                         <h2 class="text-center">Habilidades</h2>
                     </div>
                     <div class="item" v-for="item in educacion">
-                      <div class="mx-auto" style="width: 800px;">
-                        <div class="row" v-for="item in habilidades">
+                        <div class="mx-auto" style="width: 800px;">
+                            <div class="row" v-for="item in habilidades">
 
-                            <div class="col-md-12">
-                              <p> <strong>@{{item.habilidad}}</strong> </p>
-                              <div class="progress">
-  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" v-bind:style="'width:'+item.porcentaje">@{{item.porcentaje}}</div>
-</div>
+                                <div class="col-md-12">
+                                    <p> <strong>@{{item.habilidad}}</strong> </p>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" v-bind:style="'width:'+item.porcentaje">@{{item.porcentaje}}</div>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
 
-                      </div>
-</div>
-
-                </div>
-              </section>
-              <section class="portfolio-block cv" id="">
+                    </div>
+            </section>
+            <section class="portfolio-block cv" id="proyecto">
                 <div class="hobbies group">
                     <div class="heading">
-                        <h2 class="text-center">Hobbies</h2>
+                        <h2 class="text-center">Proyectos</h2>
+
+                        <div class="row">
+@foreach($proyectos as $proyecto)
+                            <div class="col-sm-* derecha col-center">
+
+                                <div class="card" style="width: 16rem;">
+
+                                    <img class="card-img-top" src="{{ Storage::url($proyecto->archivo) }}" alt="Card image cap">
+
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{$proyecto->proyecto}}</h5>
+                                        <p class="card-text">{{$proyecto->descripcion}}</p>
+                                        <a href="{{url($proyecto->enlace)}}" target="_blank">{{$proyecto->titulo_enlace}}</a>
+
+                                    </div>
+                                </div>
+                                <br>
+
+                            </div>
+@endforeach
+                        </div>
+
                     </div>
-                    <p class="text-center text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras risus ligula, iaculis ut metus sit amet, luctus pharetra mauris. Aliquam purus felis, pretium vel pretium vitae, dapibus sodales ante. Suspendisse potenti. Duis nunc eros.</p>
+            </section>
+
+    </main>
+    <footer class="page-footer" id="footers">
+        <div class="container">
+            <!-- <div class="links">
+                <a href="#">About me</a>
+                <a href="#">Contact me</a>
+                <a href="#">Projects</a></div> -->
+
+                <div class="social-icons">
+                  @foreach($redes as $social)
+                  <a href="{{url($social->direccion)}}" target="_blank"><i class="{{$social->red}}"></i></a>
+                  @endforeach
                 </div>
 
-        </section>
-        </div>
-    </main>
-    <footer class="page-footer">
-        <div class="container">
-            <div class="links"><a href="#">About me</a><a href="#">Contact me</a><a href="#">Projects</a></div>
-            <div class="social-icons"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-instagram-outline"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a></div>
+
+
+
         </div>
     </footer>
     <script src="/js/jquery.js"></script>
