@@ -27,9 +27,10 @@
     <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
         <div class="container">
             @if(!$dsc)
-            <a class="navbar-brand logo" href="#"></a>
+            <a class="navbar-brand logo" href=""></a>
             @else
-            <a class="navbar-brand logo" href="#">{{$dsc->name}}</a> @endif
+            <a class="navbar-brand logo" href="">{{$dsc->name}}</a> 
+            @endif
 
             <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -47,15 +48,19 @@
     <main class="page cv-page" id="main">
         <section class="portfolio-block block-intro border-bottom" id="inicio">
             <div class="container">
-            <div class="avatar" style="background-image: url({{ Storage::url($dsc->archivo) }})"></div>
-
-
+                @if(!$dsc)
+                    
+                @else
+                <div class="avatar" style="background-image: url({{ Storage::url($dsc->archivo) }})"></div>
                 <div class="about-me">
                     <p><strong>@{{descripcion.name}}</strong></p>
                     <p>@{{descripcion.descripcion}}</p>
 
                     <!-- <a class="btn btn-outline-primary" role="button" href="#">Hire me</a></div> -->
                 </div>
+            @endif
+
+                
         </section>
         <div class="container-fluid">
             <section class="portfolio-block border-bottom cv" id="experiencia">

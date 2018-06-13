@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Footer;
 class FooterController extends Controller
 {
+  function __construct(){
+
+    $this->middleware('auth');
+  }
     /**
      * Display a listing of the resource.
      *

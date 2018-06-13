@@ -10,20 +10,21 @@
 {{session('save')}}
 </div>
 @endif
-<form class="form-horizontal" method="post" action="{{route('descripcion.update', $desc->id)}}">
+<form class="form-horizontal" method="post" action="{{route('descripcion.update', $desc->id)}}" enctype="multipart/form-data">
   {!!csrf_field()!!}
   {!!method_field('PUT')!!}
 <fieldset>
+  <br>
+  <div class="form-group">
+    <img width="150px" height="150px" src="{{Storage::url($desc->archivo)}}" alt="">
+    <div class="col-md-4">
+      <input name="archivo" class="input-file" type="file">
+    </div>
+  </div>
   <div class="form-group">
       <label class="col-md-12 control-label" for="">Nombre</label>
       <div class="col-md-12">
         <input type="text" class="form-control" name="name" value="{{$desc->name}}" placeholder="ingrese su nombre" autofocus>
-      </div>
-  </div>
-  <div class="form-group">
-      <label class="col-md-12 control-label" for="">Dirección</label>
-      <div class="col-md-12">
-        <input type="text" class="form-control" name="address" value="{{$desc->address}}" placeholder="ingrese su dirección">
       </div>
   </div>
   <div class="form-group">

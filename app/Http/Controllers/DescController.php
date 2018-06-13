@@ -3,9 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateDescRequest;
 use App\Description;
 class DescController extends Controller
 {
+  function __construct(){
+
+    $this->middleware('auth');
+  }
     /**
      * Display a listing of the resource.
      *
@@ -14,8 +19,9 @@ class DescController extends Controller
     public function index()
     {
       $descripciones = Description::all();
+      $mostrar = true;
         //retornamos al vista
-        return view('descripcion.index', compact('descripciones'));
+        return view('descripcion.index', compact('descripciones', 'mostrar'));
     }
 
     /**
@@ -35,7 +41,7 @@ class DescController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateDescRequest $request)
     {
       //se obtiene el nombre original del archivo
       $nombre = $request->file('archivo')->getClientOriginalName();
@@ -45,11 +51,10 @@ class DescController extends Controller
       $des = new Description;
       $des->archivo = $path;
       $des->name = $request->name;
-      $des->address = $request->address;
       $des->email = $request->email;
       $des->descripcion = $request->descripcion;
       $des->save();
-        return back()->with('save', 'Guardado exitoso');
+      return redirect()->route('descripcion.index')->with('save', 'Guardado exitoso');
     }
 
     /**
@@ -82,9 +87,15 @@ class DescController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateDescRequest $request, $id)
     {
-        Description::findOrFail($id)->update($request->all());
+        $desc = Description::findOrFail($id);
+        if ($request->hasFile('archivo')) {
+              $nombre = $request->file('archivo')->getClientOriginalName();
+              $desc->archivo = $request->file('archivo')->storeAs('public', $nombre);
+
+        }
+        $desc->update($request->only('name', 'email', 'descripcion'));
         return back()->with('save', 'Datos actualizados correctamente');
     }
 

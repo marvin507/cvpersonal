@@ -1,6 +1,7 @@
 @extends('layout')
 
 @section('contenido')
+
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
   <h1 class="h2">Cabezera</h1>
 </div>
@@ -8,8 +9,16 @@
 <div class="alert alert-danger" role="alert">
 {{session('delete')}}
 </div>
+@elseif(session()->has('save'))
+<div class="alert alert-success" role="alert">
+{{session('save')}}
+</div>
 @endif
-<a href="{{route('descripcion.create')}}" class="btn btn-primary">Añadir Cabezera</a>
+@if($mostrar === true)
+    <a href="{{route('descripcion.create')}}" class="btn btn-primary">Añadir Cabezera</a>
+@endif
+
+
 <hr>
 
 <table  class="table">
@@ -17,7 +26,7 @@
     <tr>
       <th>ID</th>
       <th>Nombre</th>
-      <th>Dirección</th>
+      
     </tr>
   </thead>
   <tbody>
@@ -26,7 +35,7 @@
       <tr>
           <td>{{$descripcion->id}}</td>
           <td>{{$descripcion->name}}</td>
-          <td>{{$descripcion->address}}</td>
+          
           <td>
             <a href="{{route('descripcion.edit', $descripcion->id)}}" class="btn btn-warning">Editar</a>
             <form style="display: inline" action="{{route('descripcion.destroy', $descripcion->id)}}" method="post">
