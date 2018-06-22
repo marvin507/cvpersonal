@@ -4,6 +4,7 @@ csm personal
 sistema de gestion de contenido dedicado para personas que quieran mostrar su cv en la web...version en desarrollo.
 
 **¿Como probar el proyecto?**
+
 1. Instalar composer
 
 2. En tu terminal ejecutar composer global require "laravel/installer".
@@ -29,15 +30,11 @@ En estos campos, las credenciales de tu base de datos:
 
 7. Dentro del proyecto crea una carpeta donde estara toda la aplicacion como tal, por ejemplo: "miaplicacion", cortar todos los archivos menos la carpeta public y pegar en la carpeta recien creada "miaplicacion". Una vez hecho esto cortar los archivos de la carpeta public y pegarlo fuera (osea dentro del proyecto en si), luego de esto se puede eliminar la carpeta public, ya que estará vacia.
 
-<<<<<<< HEAD
+
 8. Editar el archivo index.php, en la linea donde dice require __DIR__.'/../vendor/autoload.php' reemplazar por require __DIR__.'/miaplicacion/vendor/autoload.php', al igual en la linea $app = require_once __DIR__.'/../bootstrap/app.php' por $app = require_once __DIR__.'/miaplicacion/bootstrap/app.php'. Si estás en ubuntu quizás te aparezca un error de permisos, entra a la carpeta storage por terminal que está en "miaplicacion" y ejecuta sudo chmod -R 755 storage.
 
 9. Ejecuta el proyecto.
-=======
-5. Entrar a la carpeta de la aplicacion como tal en tu terminal(ejemplo: "cvpersonal-master"), si tu servidor es lamp cd /var/www/html/cvpersonal-master y si en tu caso es xampp cd xampp/htdocs/cvpersonal-master y ejecutar composer install.
 
-6. 
->>>>>>> master
 
 pd: este proyecto está en modo de prueba, si tienes alguna duda escribeme a mi correo.
 
