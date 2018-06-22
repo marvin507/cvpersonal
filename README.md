@@ -28,9 +28,9 @@ En estos campos, las credenciales de tu base de datos:
 
 4. Editar el archivo index.php, en la linea donde dice require __DIR__.'/../vendor/autoload.php' reemplazar por require __DIR__.'/miaplicacion/vendor/autoload.php', al igual en la linea $app = require_once __DIR__.'/../bootstrap/app.php' por $app = require_once __DIR__.'/miaplicacion/bootstrap/app.php'. Si estás en ubuntu quizás te aparezca un error de permisos, entra a la carpeta storage por terminal que está en "miaplicacion" y ejecuta sudo chmod -R 755 storage.
 
-5. Entrar a la carpeta de la aplicacion como tal en tu terminal(ejemplo: "aplicacion"), si tu servidor es lamp cd /var/www/html/cvpersonal-master/aplicacion y si en tu caso es xampp cd xampp/htdocs/cvpersonal-master/aplicacion y ejecutar composer install, asegurate de tener instalado composer en tu equipo.
+5. Entrar a la carpeta de la aplicacion como tal en tu terminal(ejemplo: "cvpersonal-master"), si tu servidor es lamp cd /var/www/html/cvpersonal-master y si en tu caso es xampp cd xampp/htdocs/cvpersonal-master y ejecutar composer install.
 
-6. Luego de esto abre el proyecto completo en tu editor(sublime-text, atom, etc), crea un archivo que se llamará .env, copia el contenido del archivo llamado .env.example y pegalo en el nuevo o si prefieres solo renombralo a .env. Recomendación crear uno nuevo. 
+6. 
 
 7. 
 
