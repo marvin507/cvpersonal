@@ -18,10 +18,10 @@ class DescController extends Controller
      */
     public function index()
     {
-      $descripciones = Description::all();
-      $mostrar = true;
+      $descripcion = Description::first();
+      
         //retornamos al vista
-        return view('descripcion.index', compact('descripciones', 'mostrar'));
+        return view('descripcion.index', compact('descripcion'));
     }
 
     /**
@@ -43,11 +43,18 @@ class DescController extends Controller
      */
     public function store(CreateDescRequest $request)
     {
+
+    if ($request->hasFile('archivo')) {
       //se obtiene el nombre original del archivo
       $nombre = $request->file('archivo')->getClientOriginalName();
       //se guarda en el directorio publico
       $path = $request->file('archivo')->storeAs('public', $nombre);
       //guardamos
+    }
+    else{
+
+        $path = null;
+    }
       $des = new Description;
       $des->archivo = $path;
       $des->name = $request->name;

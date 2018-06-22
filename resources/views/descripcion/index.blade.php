@@ -14,8 +14,14 @@
 {{session('save')}}
 </div>
 @endif
-@if($mostrar === true)
-    <a href="{{route('descripcion.create')}}" class="btn btn-primary">Añadir Cabezera</a>
+
+
+@if(empty($descripcion))
+
+    <a href="{{route('descripcion.create')}}" class="btn btn-primary btncuadrado">Añadir Cabezera</a>
+
+@else
+
 @endif
 
 
@@ -31,22 +37,22 @@
   </thead>
   <tbody>
 
-      @foreach($descripciones as $descripcion)
+     @if(isset($descripcion)) 
       <tr>
           <td>{{$descripcion->id}}</td>
           <td>{{$descripcion->name}}</td>
           
           <td>
-            <a href="{{route('descripcion.edit', $descripcion->id)}}" class="btn btn-warning">Editar</a>
+            <a href="{{route('descripcion.edit', $descripcion->id)}}" class="btn btn-warning btncuadrado">Editar</a>
             <form style="display: inline" action="{{route('descripcion.destroy', $descripcion->id)}}" method="post">
               {!!csrf_field()!!}
               {!!method_field('DELETE')!!}
-              <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estas seguro de eliminar esta descripcion?')">Eliminar</button>
+              <button type="submit" class="btn btn-danger btncuadrado" onclick="return confirm('¿Estas seguro de eliminar esta descripcion?')">Eliminar</button>
             </form>
           </td>
       </tr>
 
-      @endforeach
+      @endisset
 
   </tbody>
 </table>
