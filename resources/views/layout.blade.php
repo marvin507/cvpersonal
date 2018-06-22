@@ -10,14 +10,10 @@
     <title>Panel Administrativo</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/css/app.css" rel="stylesheet">
-    <link href="/css/dash.css" rel="stylesheet">
-    <!-- Include Editor style. -->
-<link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.1/css/froala_editor.min.css' rel='stylesheet' type='text/css' />
-<link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.1/css/froala_style.min.css' rel='stylesheet' type='text/css' />
-
-    <!-- Custom styles for this template -->
-    <link href="dashboard.css" rel="stylesheet">
+    <link href="{{asset('/css/app.css')}}" rel="stylesheet">
+    <link href="{{asset('/css/dash.css')}}" rel="stylesheet">
+    
+   
   </head>
 
   <body>
@@ -26,7 +22,7 @@
 
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-          <a class="nav-link" href="/logout" onclick="return confirm('¿Estas seguro que quieres salir?')">Cerrar Session de {{auth()->user()->name}}</a>
+          <a class="nav-link" href="{{route('session.close')}}" onclick="return confirm('¿Estas seguro que quieres salir?')">Cerrar Session de {{auth()->user()->name}}</a>
         </li>
       </ul>
     </nav>
@@ -117,8 +113,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/js/app.js" ></script>
-    <!-- Include JS file. -->
-<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.1/js/froala_editor.min.js'></script>
+    <script src="{{asset('/js/app.js')}}" ></script>
+   
   </body>
 </html>

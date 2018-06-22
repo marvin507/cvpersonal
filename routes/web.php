@@ -4,9 +4,9 @@
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 
-Route::post('login', 'Auth\LoginController@login');
+Route::post('login', 'Auth\LoginController@login')->name('login.session');
 
-Route::get('logout', 'Auth\LoginController@logout');
+Route::get('logout', 'Auth\LoginController@logout')->name('session.close');
 
 //fin de rutas de acceso
 
