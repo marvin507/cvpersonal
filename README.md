@@ -7,10 +7,34 @@ sistema de gestion de contenido dedicado para personas que quieran mostrar su cv
 
 1. Descarga o clona el proyecto.
 
+2. Copia el proyecto en tu servidor local, luego de esto abre el proyecto en tu editor(sublime-text, atom, etc), crea un archivo que se llamará .env, copia el contenido del archivo llamado .env.example y pegalo en el nuevo o si prefieres solo renombralo a .env. Recomendación crear uno nuevo. 
 
-2. En caso de que bajaste el archivo, extraerlo. Una vez Extraido copiar carpeta en tu servidor local. 
+En estos campos, las credenciales de tu base de datos:
 
-3. Dentro del proyecto crear una carpeta donde estara toda la aplicacion como tal. Por ejemplo: "aplicacion" y cortar todos los archivos menos la carpeta public. Una vez hecho esto cortar los archivos de la carpeta public y pegarlo fuera (osea dentro del proyecto en si), luego de esto se puede eliminar la carpeta public, ya que estará vacia.
+	DB_CONNECTION=mysql
+	DB_HOST=127.0.0.1
+	DB_PORT=3306
+	DB_DATABASE=nombre de tu bd
+	DB_USERNAME=usuario
+	DB_PASSWORD= dejar vacio si no tienes pass
 
-4. Editar el archivo index.php, en la linea donde dice require __DIR__.'/../vendor/autoload.php' reemplazar por require __DIR__.'/../aplacion/vendor/autoload.php', al igual en la linea $app = require_once __DIR__.'/../bootstrap/app.php' por $app = require_once __DIR__.'/../aplicacion/bootstrap/app.php';
+
+3. Entrar a la carpeta de la aplicacion como tal en tu terminal(ejemplo: "aplicacion"), si tu servidor es lamp cd /var/www/html/cvpersonal-master y si en tu caso es xampp cd xampp/htdocs/cvpersonal-master y ejecutar composer install, asegurate de tener instalado composer en tu equipo. Cuando termina de instalar composer, ejecutar php artisan key:generate
+
+
+4. Ejecutar php artisan migrate --seed para ejecutar las migraciones y los seeds.
+
+5. Dentro del proyecto crear una carpeta donde estara toda la aplicacion como tal, por ejemplo: "miaplicacion", cortar todos los archivos menos la carpeta public y pegar en la carpeta recien creada "miaplicacion". Una vez hecho esto cortar los archivos de la carpeta public y pegarlo fuera (osea dentro del proyecto en si), luego de esto se puede eliminar la carpeta public, ya que estará vacia.
+
+4. Editar el archivo index.php, en la linea donde dice require __DIR__.'/../vendor/autoload.php' reemplazar por require __DIR__.'/../miaplicacion/vendor/autoload.php', al igual en la linea $app = require_once __DIR__.'/../bootstrap/app.php' por $app = require_once __DIR__.'/../miaplicacion/bootstrap/app.php'.
+
+5. Entrar a la carpeta de la aplicacion como tal en tu terminal(ejemplo: "aplicacion"), si tu servidor es lamp cd /var/www/html/cvpersonal-master/aplicacion y si en tu caso es xampp cd xampp/htdocs/cvpersonal-master/aplicacion y ejecutar composer install, asegurate de tener instalado composer en tu equipo.
+
+6. Luego de esto abre el proyecto completo en tu editor(sublime-text, atom, etc), crea un archivo que se llamará .env, copia el contenido del archivo llamado .env.example y pegalo en el nuevo o si prefieres solo renombralo a .env. Recomendación crear uno nuevo. 
+
+7. 
+
+
+
+
 

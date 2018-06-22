@@ -7,7 +7,7 @@
     <title>
         @if(!$dsc) @else {{$dsc->name}} @endif
     </title>
-    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="{{asset('/css/app.css')}}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
 
@@ -168,10 +168,10 @@
 
         </div>
     </footer>
-    <script src="/js/jquery.js"></script>
-    <script src="/js/app.js"></script>
-    <script src="/js/landingPages.js"></script>
-    <script src="/js/vue.js"></script>
+    <script src="{{asset('/js/jquery.js')}}"></script>
+    <script src="{{asset('/js/app.js')}}"></script>
+    <script src="{{asset('/js/landingPages.js')}}"></script>
+    <script src="{{asset('/js/vue.js')}}"></script>
 
 </body>
 
