@@ -7,7 +7,7 @@
 </div>
 
 @if(empty($cv))
-<a href="{{route('cv.create')}}" class="btn btn-primary">Subir CV</a>
+<a href="{{route('cv.create')}}" class="btn btn-primary">Subir hoja de vida</a>
 @else
 
 @endif
