@@ -34,6 +34,9 @@ Route::resource('panel/cv', 'CvController');
 //vista para configurar footer
 Route::resource('panel/footer', 'FooterController');
 
+//vista perfil
+Route::resource('panel/perfil', 'PerfilController');
+
 
 
 //rutas que consume vue

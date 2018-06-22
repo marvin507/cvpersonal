@@ -15,7 +15,7 @@ class UserDefaultCreate extends Seeder
 
             'name' => 'administrador',
             'user_name' => 'admin',
-            'email' => 'aguilar.marvin07@gmail.com',
+            'email' => 'admin07@email.com',
             'password' => bcrypt('admin'),
         ]);
     }
