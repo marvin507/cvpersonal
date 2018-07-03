@@ -44,7 +44,7 @@
     </textarea>
     {!!$errors->first('descripcion', '<span class=errors>:message</span>')!!}
     <br><br>
-    <button type="submit" class="btn btn-success cuadrado">Guardar</button>
+    <button type="submit" class="btn btn-primary cuadrado">Guardar</button>
   </div>
 
 </div>
