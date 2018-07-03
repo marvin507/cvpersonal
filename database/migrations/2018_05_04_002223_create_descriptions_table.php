@@ -15,7 +15,7 @@ class CreateDescriptionsTable extends Migration
     {
         Schema::create('descriptions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('archivo', 20)->nullable();
+            $table->string('archivo', 100)->nullable();
             $table->string('name', 50);
             $table->string('email', 50);
             $table->text('descripcion', 150);

@@ -15,6 +15,7 @@
   <label class="col-md-4 control-label" for="archivo"></label>
   <div class="col-md-4">
     <input name="archivo" class="input-file" type="file">
+    {!!$errors->first('archivo', '<p>:message</p>')!!}
   </div>
 </div>
 
@@ -22,7 +23,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for=""></label>
   <div class="col-md-4">
-    <button id="" name="" class="btn btn-primary">Guardar</button>
+    <button id="" name="" class="btn btn-primary cuadrado">Guardar</button>
   </div>
 </div>
 

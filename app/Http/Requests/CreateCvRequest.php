@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateDescRequest extends FormRequest
+class CreateCvRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,7 @@ class CreateDescRequest extends FormRequest
     public function rules()
     {
         return [
-            'archivo' => 'mimes:jpeg,bmp,png',
-            'name' => 'required',
-            'email'=> 'required',
-            'descripcion' => 'required'
+            'archivo' => 'mimes:doc,docx,pdf,odt'
         ];
     }
 }

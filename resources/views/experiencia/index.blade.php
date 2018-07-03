@@ -12,7 +12,7 @@
 </div>
 
 @endif
-<a href="{{route('experiencias.create')}}" class="btn btn-primary">Nueva Experiencia</a><hr>
+<a href="{{route('experiencias.create')}}" class="btn btn-primary cuadrado">Nueva Experiencia</a><hr>
 <table class="table">
   <thead>
     <tr>
@@ -33,11 +33,11 @@
               <p>del {{$experiencia->fecha_inicio}} al {{$experiencia->fecha_final}}</p>
           </td>
           <td width="190px">
-              <a href="{{route('experiencias.edit', $experiencia->id)}}" class="btn btn-warning btn-sm">Editar</a>
+              <a href="{{route('experiencias.edit', $experiencia->id)}}" class="btn btn-warning btn-sm cuadrado">Editar</a>
               <form style="Display: inline;" action="{{route('experiencias.destroy', $experiencia->id)}}" method="post">
                 {!!csrf_field()!!}
                 {!!method_field('DELETE')!!}
-                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estas seguro de eliminar esta experiencia?')">Eliminar</button>
+                <button type="submit" class="btn btn-danger btn-sm cuadrado" onclick="return confirm('¿Estas seguro de eliminar esta experiencia?')">Eliminar</button>
               </form>
           </td>
         </tr>

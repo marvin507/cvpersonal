@@ -4,7 +4,7 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
   <h1 class="h2">Proyectos</h1>
 </div>
-<a href="{{route('proyectos.create')}}" class="btn btn-primary">Añadir Proyecto</a>
+<a href="{{route('proyectos.create')}}" class="btn btn-primary cuadrado">Añadir Proyecto</a>
 @if(session()->has('delete'))
 
 <div class="alert alert-danger" role="alert">
@@ -38,7 +38,7 @@
             <form style="Display:inline;"  action="{{route('proyectos.destroy', $proyecto->id)}}" method="post">
               {!!csrf_field()!!}
               {!!method_field('DELETE')!!}
-              <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estas seguro de eliminar este proyecto?')">Eliminar</button>
+              <button type="submit" class="btn btn-danger btn-sm cuadrado" onclick="return confirm('¿Estas seguro de eliminar este proyecto?')">Eliminar</button>
             </form>
           </td>
         </tr>

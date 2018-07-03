@@ -34,7 +34,8 @@ Route::resource('panel/cv', 'CvController');
 //vista para configurar footer
 Route::resource('panel/footer', 'FooterController');
 
-
+//vista para configurar usuario
+Route::resource('panel/usuario', 'UserController');
 
 //rutas que consume vue
 Route::get('/acercade', 'FrontController@descripcionVue');
@@ -46,7 +47,7 @@ Route::get('/footer', 'FrontController@footerVue');
 //ruta del front-end
 Route::get('/', 'FrontController@index');
 
-   
+
 
         // Password Reset Routes...
         Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');

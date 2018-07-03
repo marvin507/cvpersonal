@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateDescRequest extends FormRequest
+class UpdateUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,9 @@ class CreateDescRequest extends FormRequest
     public function rules()
     {
         return [
-            'archivo' => 'mimes:jpeg,bmp,png',
-            'name' => 'required',
-            'email'=> 'required',
-            'descripcion' => 'required'
+          'user_name' => 'required|unique:users,user_name,'.$this->route('usuario'),
+          'email' => 'required|unique:users,email,'.$this->route('usuario'),
+          'password' => 'confirmed'
         ];
     }
 }

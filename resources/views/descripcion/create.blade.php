@@ -4,7 +4,7 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
   <h1 class="h2">Nueva Cabezera</h1>
 </div>
-<a href="{{route('descripcion.index')}}" class="btn btn-warning">Atrás</a>
+<a href="{{route('descripcion.index')}}" class="btn btn-warning cuadrado">Atrás</a>
 @if(session()->has('save'))
 <div class="alert alert-success" role="alert">
 {{session('save')}}
@@ -18,6 +18,7 @@
     <label class="col-md-4 control-label" for="archivo">Foto de Perfíl</label>
     <div class="col-md-4">
       <input name="archivo" class="input-file" type="file">
+      {!!$errors->first('archivo', '<p>:message</p>')!!}
     </div>
   </div>
 <div class="form-group">
@@ -43,7 +44,7 @@
     </textarea>
     {!!$errors->first('descripcion', '<span class=errors>:message</span>')!!}
     <br><br>
-    <button type="submit" class="btn btn-success">Guardar</button>
+    <button type="submit" class="btn btn-success cuadrado">Guardar</button>
   </div>
 
 </div>

@@ -7,7 +7,7 @@
 </div>
 
 @if(empty($cv))
-<a href="{{route('cv.create')}}" class="btn btn-primary">Subir CV</a>
+<a href="{{route('cv.create')}}" class="btn btn-primary cuadrado">Subir CV</a>
 @else
 
 @endif
@@ -33,7 +33,7 @@
             <form  action="{{route('cv.destroy', $cv->id)}}" method="post">
               {!!csrf_field()!!}
               {!!method_field('DELETE')!!}
-              <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+              <button type="submit" class="btn btn-danger btn-sm cuadrado">Eliminar</button>
             </form>
 
         </td>

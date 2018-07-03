@@ -49,7 +49,7 @@
 <!-- Button -->
 <div class="form-group">
 <div class="col-md-4">
-  <button type="submit" class="btn btn-success">Actulizar</button>
+  <button type="submit" class="btn btn-success cuadrado">Actulizar</button>
 </div>
 </div>
 

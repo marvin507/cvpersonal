@@ -18,10 +18,9 @@ class DescController extends Controller
      */
     public function index()
     {
-      $descripciones = Description::all();
-      $mostrar = true;
+      $descripcion = Description::first();
         //retornamos al vista
-        return view('descripcion.index', compact('descripciones', 'mostrar'));
+        return view('descripcion.index', compact('descripcion'));
     }
 
     /**
@@ -44,16 +43,27 @@ class DescController extends Controller
     public function store(CreateDescRequest $request)
     {
       //se obtiene el nombre original del archivo
-      $nombre = $request->file('archivo')->getClientOriginalName();
+      //$nombre = $request->file('archivo')->getClientOriginalName();
       //se guarda en el directorio publico
-      $path = $request->file('archivo')->storeAs('public', $nombre);
+      //$path = $request->file('archivo')->storeAs('public', $nombre);
       //guardamos
-      $des = new Description;
-      $des->archivo = $path;
-      $des->name = $request->name;
-      $des->email = $request->email;
-      $des->descripcion = $request->descripcion;
-      $des->save();
+
+      if ($request->hasFile('archivo')) {
+            $nombre = $request->file('archivo')->getClientOriginalName();
+              $path = $request->file('archivo')->storeAs('public', $nombre);
+
+              $des = new Description;
+              $des->archivo = $path;
+              $des->name = $request->name;
+              $des->email = $request->email;
+              $des->descripcion = $request->descripcion;
+              $des->save();
+
+      }
+      else{
+        Description::create($request->all());
+      }
+
       return redirect()->route('descripcion.index')->with('save', 'Guardado exitoso');
     }
 

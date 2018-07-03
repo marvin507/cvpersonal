@@ -9,7 +9,7 @@
 {{session('delete')}}
 </div>
 @endif
-<a href="{{route('footer.create')}}" class="btn btn-primary">Crear Footer</a>
+<a href="{{route('footer.create')}}" class="btn btn-primary cuadrado">Crear Footer</a>
 <hr>
 
 <table  class="table">
@@ -27,12 +27,12 @@
       <td>{{$footer->direccion}}</td>
       <td>
 
-            <a href="{{route('footer.edit', $footer->id)}}" class="btn btn-warning btn-sm">Editar</a>
+            <a href="{{route('footer.edit', $footer->id)}}" class="btn btn-warning btn-sm cuadrado">Editar</a>
 
             <form style="Display:inline;"  action="{{route('footer.destroy', $footer->id)}}" method="post" >
               {!!csrf_field()!!}
               {!!method_field('DELETE')!!}
-              <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estas seguro de borrar este enlace?')">Eliminar</button>
+              <button type="submit" class="btn btn-danger btn-sm cuadrado" onclick="return confirm('¿Estas seguro de borrar este enlace?')">Eliminar</button>
             </form>
 
       </td>

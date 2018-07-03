@@ -12,7 +12,7 @@
 </div>
 
 @endif
-<a href="{{route('educacion.create')}}" class="btn btn-primary">Agregar Logros</a><hr>
+<a href="{{route('educacion.create')}}" class="btn btn-primary cuadrado">Agregar Logros</a><hr>
 <table class="table">
   <thead>
     <tr>
@@ -31,11 +31,11 @@
       <td>{{$educacion->titulo}}</td>
       <td>{{$educacion->estado}}</td>
     <td>
-        <a href="{{route('educacion.edit', $educacion->id)}}" class="btn btn-warning">Editar</a>
+        <a href="{{route('educacion.edit', $educacion->id)}}" class="btn btn-warning cuadrado">Editar</a>
         <form style="Display:inline;" action="{{route('educacion.destroy', $educacion->id)}}" method="post">
           {!!csrf_field()!!}
           {!!method_field('DELETE')!!}
-          <button type="submit" class="btn btn-danger">Eliminar</button>
+          <button type="submit" class="btn btn-danger cuadrado">Eliminar</button>
         </form>
     </td>
     </tr>

@@ -55,7 +55,7 @@
 <!-- Button -->
 <div class="form-group">
 <div class="col-md-4">
-  <button type="submit" class="btn btn-primary">Guardar</button>
+  <button type="submit" class="btn btn-primary cuadrado">Guardar</button>
 </div>
 </div>
 
